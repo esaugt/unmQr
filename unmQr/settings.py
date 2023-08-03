@@ -80,6 +80,7 @@ WSGI_APPLICATION = 'unmQr.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+import os
 from dj_database_url import parse as dburl
 
 # URL de conexión de PostgreSQL proporcionada
@@ -91,13 +92,14 @@ db_config = dburl(default_dburl)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': db_config.path[1:],
-        'USER': db_config.username,
-        'PASSWORD': db_config.password,
-        'HOST': db_config.host,
-        'PORT': db_config.port,
+        'NAME': db_config['NAME'],
+        'USER': db_config['USER'],
+        'PASSWORD': db_config['PASSWORD'],
+        'HOST': db_config['HOST'],
+        'PORT': db_config['PORT'],
     }
 }
+
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 

@@ -81,12 +81,13 @@ WSGI_APPLICATION = 'unmQr.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 from dj_database_url import parse as dburl
+from dj_database_url import config as db_config
+
 default_dburl = 'postgres://infounemi_user:deHMZozfzDrRSNuAtZZVjUOIifOhZQ37@dpg-cj5jucgeba7s73ed2c3g-a.oregon-postgres.render.com/infounemi'
 
 DATABASES = {
-    'default': config('DATABASE_URL', default=default_dburl, cast=dburl),
+    'default': db_config('DATABASE_URL', default=default_dburl, cast=dburl),
 }
-
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 

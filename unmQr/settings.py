@@ -84,7 +84,7 @@ import dj_database_url
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgres://user:password@localhost:5432/mydatabase',
+        default='postgres://infounemi_user:deHMZozfzDrRSNuAtZZVjUOIifOhZQ37@dpg-cj5jucgeba7s73ed2c3g-a/infounemi',
         conn_max_age=600
     )
 }

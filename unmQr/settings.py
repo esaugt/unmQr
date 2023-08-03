@@ -25,7 +25,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', default='your secret key')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'RENDER' not in os.environ
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:    
@@ -81,11 +81,11 @@ WSGI_APPLICATION = 'unmQr.wsgi.application'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
 import dj_database_url
+from decouple import config
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgres://infounemi_user:deHMZozfzDrRSNuAtZZVjUOIifOhZQ37@dpg-cj5jucgeba7s73ed2c3g-a/infounemi',
-        conn_max_age=600
+        default=config('DATABASE_URL')
     )
 }
 
@@ -149,3 +149,5 @@ EMAIL_HOST_PASSWORD = 'ggnwwwdaeuixrcek'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'sitios/media')
 # URL para acceder a los archivos multimedia en tu proyecto
 MEDIA_URL = '/media/'
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'

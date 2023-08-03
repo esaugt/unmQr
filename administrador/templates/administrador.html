@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+Lista de bloques - Administrador
+{% endblock %}
+
+{% block botonbloques %}
+<li class="nav-item">
+  <a class="nav-link text-white fw-bold" href="{% url 'registro' %}">Agregar Administrador</a>
+</li>
+{% endblock botonbloques %}
+
+{% block content %}
+<div class="container mt-4">
+  <h1>Lista de bloques</h1>
+
+  <ul class="list-group">
+    {% for bloque in bloques %}
+      <li class="list-group-item">
+        <div class="d-flex align-items-center">
+          <img src="{% if bloque.imagen %}{{ bloque.imagen.url }}{% else %}{% static 'img/default.jpg' %}{% endif %}" alt="{{ bloque.nombre }}" class="me-3 img-fluid" style="max-width: 100px; border-radius: 0.3rem;">
+          <div>
+            <h2>{{ bloque.nombre }}</h2>
+            <p>Funciones: {{ bloque.funciones }}</p>
+            <!-- Otros campos del bloque... -->
+
+            <a href="{% url 'bloque' bloque_id=bloque.id %}" class="btn btn-primary me-2">Ver Bloque</a>
+            <a href="{% url 'editar_bloque' bloque_id=bloque.id %}" class="btn btn-warning me-2">Editar Bloque</a>
+            <a href="{% url 'ver_sitios' bloque_id=bloque.id %}" class="btn btn-info me-2">Ver Sitios</a>
+
+          </div>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
+<div class="container mt-4">
+  <h2>Salir</h2>
+  <a class="btn btn-danger" href="/login">Cerrar Sesión</a>
+</div>
+{% endblock %}

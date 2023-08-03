@@ -1,0 +1,544 @@
+:root {
+    --color-azul: #002334;
+    --color-amarillo: #FF8A00;
+    --color-blanco: #fff;
+    --fuente: 'Raleway', 'sans-serif';
+}
+
+.navbar {
+    background-color: var(--color-azul);
+    height: 80px;
+}
+
+.link-buscar {
+    color: white;
+}
+
+.link-buscar:hover {
+    color: white;
+}
+
+.navbar-nav .nav-link.active,
+.navbar-nav .nav-link.show {
+    color: white;
+}
+
+.navbar-nav .btn-buscar {
+    margin-bottom: -100px;
+}
+
+.navbar-toggler {
+    background-color: white;
+    color: white;
+}
+
+.navbar-collapse {
+    background-color: var(--color-azul);
+}
+
+.imagen-fondo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.imagen-fondo img {
+    width: 110vw;
+
+    height: 50vh;
+    object-fit: cover;
+}
+
+.navbar-nav .btn-buscar {
+    z-index: 20;
+}
+
+
+.neu {
+    border-radius: 13px;
+    background: #ffffff;
+    box-shadow: 19px 19px 43px #cecece,
+        -19px -19px 43px #ffffff;
+}
+
+
+.neu h1 {
+    font-family: var(--fuente);
+    font-weight: bold;
+    padding-top: 20px;
+    font-size: 5.5rem;
+}
+
+
+.glash h4 {
+    font-family: var(--fuente);
+    font-weight: 100;
+    font-size: 0.5rem;
+}
+
+
+.accordion-button:not(.collapsed) {
+    background-color: var(--color-amarillo);
+    color: white;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+
+.accordion-body p {
+    font-family: var(--fuente);
+    color: white;
+}
+
+.accordion-body {
+    background-color: var(--color-azul);
+
+}
+
+
+.list-group-item.active {
+    z-index: 2;
+    color: var(--bs-list-group-active-color);
+    background-color: var(--color-blanco);
+    border-color: var(--color-blanco);
+}
+
+/* Estilos para los botones que despliegan el acordeón */
+.list-group-item button {
+    width: 100%;
+    text-align: left;
+    padding: 10px;
+    background-color: #ffffff;
+    border: none;
+    color: #000000; /* Color del Texto */
+    position: relative;
+  }
+
+
+@media screen and (max-width: 1024px) {
+    .neu h1 {
+
+        font-size: 2.5rem;
+
+    }
+
+}
+
+/* Home  */
+.contenedor-home {
+    height: 100vh;
+    background-color: var(--color-azul);
+}
+
+.contenedor-home img {
+    position: absolute;
+    bottom: 0;
+
+}
+
+.bloquesImg {
+    width: 100%;
+    object-fit: cover;
+    max-height: 250px;
+    filter: blur(0.2px);
+}
+
+.logo-home {
+    width: 25%;
+    height: 15%;
+    position: relative;
+    top: 5%;
+}
+
+
+@media screen and (max-width: 500px) {
+    .contenedor-home .bloquesImg {
+        width: 100%;
+        object-fit: cover;
+        max-height: 120px;
+        filter: blur(0.2px);
+    }
+    .contenedor-home .card-body {
+        height: 250px;
+
+    }
+    .logo-home {   
+        top: -5%;
+    }
+}
+
+
+/* envio */
+.contenedor-envio {
+    height: 100vh;
+    
+}
+
+.contenedor-envio .wave {
+    position: absolute;
+    bottom: 0;
+
+}
+
+.contenedor-envio .wave2{
+    position: absolute;
+    top: 0;
+}
+
+
+/* listado de bloques */
+cuerpo{margin-top:20px;}
+.home-blog {
+    padding-top: 80px;
+    padding-bottom: 80px;
+}
+@media (min-width: 992px) {
+    .home-blog {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+}
+.home-blog .section-title {
+    padding-bottom: 15px;
+}
+.home-blog .media {
+    margin-top: 50px;
+}
+@media (min-width: 768px) {
+    .home-blog .media {
+        margin-top: 30px;
+    }
+}
+
+
+.cuerpo {
+    height: 100vh;
+    background-color: rgba(204, 109, 13, 0.7);
+    
+}
+
+
+.imagenBloques {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+}
+.media.blog-media {
+    margin-top: 30px;
+    position: relative;
+    display: block;
+}
+@media (min-width: 992px) {
+    .media.blog-media {
+        display: table;
+    }
+}
+.media.blog-media .circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.5);
+    white-space: nowrap;
+    position: absolute;
+    padding: 0;
+    top: 20px;
+    left: 20px;
+    text-align: center;
+    box-shadow: none;
+    transform: translateX(0);
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+.media.blog-media .circle .day {
+    color: #fff;
+    transition: color 0.25s ease;
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 1;
+    margin-top: 12px;
+}
+.media.blog-media .circle .month {
+    text-transform: uppercase;
+    font-size: 14px;
+}
+.media.blog-media > a {
+    position: relative;
+    display: block;
+}
+@media (min-width: 992px) {
+    .media.blog-media > a {
+        display: table-cell;
+        vertical-align: top;
+        min-width: 200px;
+    }
+}
+@media (min-width: 1200px) {
+    .media.blog-media > a {
+        min-width: 230px;
+    }
+}
+.media.blog-media > a:before {
+    position: absolute;
+    content: "";
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    opacity: 0;
+    transform: scale(0);
+    transition: transform 0.3s ease, opacity 0.3s;
+    background: var(--color-amarillo);
+}
+.media.blog-media > a img {
+    width: 100%;
+}
+.media.blog-media:hover > a:before {
+    opacity: 1;
+    transform: scale(1);
+}
+.media.blog-media:hover .circle {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+.media.blog-media:hover .circle .day,
+.media.blog-media:hover .circle .month {
+    color: #222;
+}
+.media.blog-media:hover .media-body h5 {
+    color: var(--color-amarillo);
+}
+.media.blog-media:hover .media-body a.post-link {
+    color: var(--color-amarillo);
+    text-decoration: underline;
+}
+.media.blog-media .media-body {
+    border: 1px solid #efeff3;
+    padding: 30px 30px 10px;
+    font-size: 14px;
+    background: #fff;
+    border-top: none;
+}
+@media (min-width: 992px) {
+    .media.blog-media .media-body {
+        padding: 15px 20px 10px;
+        border-top: 1px solid #efeff3;
+        border-left: none;
+        display: table-cell;
+        vertical-align: top;
+    }
+}
+@media (min-width: 1200px) {
+    .media.blog-media .media-body {
+        padding: 30px 20px 10px;
+    }
+}
+.media.blog-media .media-body h5 {
+    transition: color 0.3s ease;
+    margin-bottom: 15px;
+}
+@media (min-width: 992px) {
+    .media.blog-media .media-body h5 {
+        font-size: 15px;
+    }
+}
+@media (min-width: 1200px) {
+    .media.blog-media .media-body h5 {
+        margin-bottom: 15px;
+        font-size: 18px;
+    }
+}
+.media.blog-media .media-body a.post-link {
+    display: block;
+    color: #222;
+    font-size: 11px;
+    padding: 23px 0;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+@media (min-width: 992px) {
+    .media.blog-media .media-body a.post-link {
+        padding: 7px 0;
+    }
+}
+@media (min-width: 1200px) {
+    .media.blog-media .media-body a.post-link {
+        padding: 23px 0;
+    }
+}
+.media.blog-media .media-body ul {
+    position: relative;
+    padding: 10px 0 0;
+}
+.media.blog-media .media-body ul li {
+    display: inline-block;
+    width: 49%;
+    position: relative;
+}
+.media.blog-media .media-body ul li:before {
+    position: absolute;
+    content: "";
+    top: 5px;
+    left: 0;
+    width: 1px;
+    height: 14px;
+    background: #eeeef2;
+}
+.media.blog-media .media-body ul li:first-child:before {
+    visibility: hidden;
+}
+.media.blog-media .media-body ul:before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: #eeeef2;
+}
+
+
+
+/* Restablecer Contraseña */
+
+.contenedor-resContraseña {
+    height: 100vh;
+    
+}
+
+
+.contenedor-resContraseña .wave {
+    position: absolute;
+    bottom: 0;
+
+}
+
+.contenedor-resContraseña .wave2{
+    position: absolute;
+    top: 0;
+}
+
+
+.contenedor-resContraseña .shiba {
+    position: relative;
+    transform: rotateY(180deg);
+}
+
+/* Contraseña Restablecida */
+
+
+.contenedor-contraRestablecida {
+    height: 100vh;
+    
+}
+
+.contenedor-contraRestablecida .wave {
+    position: absolute;
+    bottom: 0;
+
+}
+
+.contenedor-contraRestablecida .wave2{
+    position: absolute;
+    top: 0;
+}
+
+.contenedor-contraRestablecida .shiba {
+    position: relative;
+    transform: rotateY(180deg);
+}
+
+.imagen-pequena {
+    max-width: 250px; /* Máximo ancho de 100px */
+    max-height: 250px; /* Máxima altura de 100px */
+    border-radius: 5px; /* Opcional: agregar esquinas redondeadas */
+  }
+
+  /* Estilos para el contenedor principal, los botones y el contenido oculto son los mismos */
+  .container-fluid_ {
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    padding: 20px;
+  }
+
+  /* Estilos para el título */
+  h1 {
+    color: #1f1f1f;
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+
+  /* Estilos para el campo de búsqueda */
+  #search-input {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+  }
+
+  .input-group {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Estilo para el campo de búsqueda */
+  .form-control {
+    height: 40px; /* Ajusta el grosor de la barra */
+    padding: 8px; /* Ajusta el espacio interno */
+    border-radius: 5px; /* Ajusta la curvatura de los bordes */
+  }
+  /* Estilos para los elementos de la lista */
+  .list-group-item {
+    background-color: #f4f3ee;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+
+  
+  /* Cambio de color del texto del acordeón cuando el mouse está encima */
+  .list-group-item:hover button {
+    color: #002334; /* Cambia a color blanco cuando el mouse está encima */
+  }
+
+  /* Estilos para el contenido oculto del acordeón */
+  .collapse {
+    display: none; /* Oculta el contenido desplegable por defecto */
+  }
+
+  /* Mostrar el contenido desplegable cuando el elemento está activo */
+  .list-group-item.active .collapse {
+    display: block;
+  }
+
+  .collapse {
+        padding: 10px;
+        background-color: #002334;
+        border: 1px solid #002334;
+        border-radius: 5px;
+        color: #fff;
+    }
+
+    /* Estilos para los elementos de la lista dentro del acordeón */
+    .collapse ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .collapse ul li {
+        margin-bottom: 5px;
+    } 
+
+  /* Estilos para el icono de despliegue (flecha hacia abajo) */
+  .collapse-icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 0.3s ease; /* Transición suave del icono */
+  }
+
+  /* Estilos para el icono cuando el acordeón está desplegado (flecha hacia arriba) */
+  .list-group-item.active .collapse-icon {
+    transform: translateY(-50%) rotate(180deg);
+  }

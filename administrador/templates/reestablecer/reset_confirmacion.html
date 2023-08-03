@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Contraseña Restablecer 
+{% endblock title %}
+
+{% block botonbloques %}
+{% endblock botonbloques %}
+
+{% block content %}
+<style>
+    /* Estilos para centrar el formulario en la página */
+    body, html {
+        height: 100%;
+    }
+
+    .contenedor-contraRestablecida {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+</style>
+
+<main class="d-flex justify-content-center align-items-center contenedor-contraRestablecida">
+    <div class="d-flex justify-content-center align-items-center flex-wrap flex-row-reverse">
+        <div class="card text-center">
+            <div class="card-header">
+                Mensaje
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Puedes salir</h5>
+                <p class="card-text">La contraseña ha sido restablecida correctamente</p>
+                <a href="{% url 'login' %}" class="btn btn-primary">Salir</a>
+            </div>
+            <div class="card-footer text-body-secondary">
+                Presiona el botón para salir
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

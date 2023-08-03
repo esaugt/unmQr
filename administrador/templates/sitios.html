@@ -1,0 +1,31 @@
+{% extends 'base.html' %}  <!-- Si tienes una plantilla base, extiéndela aquí -->
+
+{% load static %}
+
+{% block title %}
+Sitios | {{ bloque.nombre }}
+{% endblock %}
+
+
+{% block content %}
+<br>
+  <h1>Sitios asociados al bloque {{ bloque.nombre }}</h1>
+
+  <ul class="list-group">
+    {% for sitio in sitios %}
+      <li class="list-group-item">
+        <div class="d-flex align-items-center">
+          <img src="{% if sitio.imagen %}{{ sitio.imagen.url }}{% else %}{% static 'img/default.jpg' %}{% endif %}" alt="{{ sitio.nombre }}" class="me-3 img-fluid" style="max-width: 100px; border-radius: 0.3rem;">
+          <div>
+            <h2>{{ sitio.nombre }}</h2>
+            <p>Horario de atención: {{ sitio.horario }}</p>
+            <!-- Otros campos del sitio... -->
+
+            <a href="{% url 'editar_sitio' sitio_id=sitio.id %}" class="btn btn-warning me-2">Editar Sitio</a>
+
+          </div>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}

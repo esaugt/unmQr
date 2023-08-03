@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Bloques 
+{% endblock %}
+
+<!--Agregar o quitar el boton bloque-->
+{% block botonbloques %}
+    {% if user.is_authenticated %}
+        <li class="nav-item">
+            <a class="nav-link active text-white fw-bold" aria-current="page" href="{% url 'administrador' %}">Home</a>
+        </li>
+    {% else %}
+        <li class="nav-item">
+            <a class="nav-link active text-white fw-bold" aria-current="page" href="{% url 'home' %}">Home</a>
+        </li>
+    {% endif %}
+
+    
+    <li>
+        <form class="d-flex" action="{% url 'resultados_busqueda' %}" method="get" role="search">
+            <div class="input-group">
+                <input class="form-control" type="search" name="q" placeholder="¿Qué deseas buscar?" aria-label="Search" required>
+                <button class="btn btn-success" type="submit">Buscar</button>
+            </div>
+        </form>
+    </li>
+{% endblock botonbloques %}
+
+{% block content %}
+<body>
+    <main class="contenedor-listado">
+        <section class="home-blog bg-sand">
+            <div class="container">
+                <div class="row justify-content-md-center">
+                    <div class="col-xl-5 col-lg-6 col-md-8">
+                        <div class="section-title text-center title-ex1">
+                            <h2>Listado de Bloques</h2>
+                            <p>Puedes encontrar la información referente a cada bloque haciendo click</p>
+                        </div>
+                    </div>
+                </div>
+
+                <ul class="bloques-list">
+                    {% for bloque in bloques %}
+                    <li class="bloque-item">
+                        <div class="bloque-info">
+                            <h2>{{ bloque.nombre }}</h2>
+                            <p>Funciones: {{ bloque.funciones }}</p>
+                            <!-- Otros campos del bloque... -->
+                        </div>
+                        <div class="bloque-image">
+                            {% if bloque.imagen %}
+                                <div class="bloque-image-wrapper">
+                                    <img src="{{ bloque.imagen.url }}" alt="{{ bloque.nombre }}" class="img-thumbnail" style="border-radius: 0.3rem;">
+                                    <div class="bloque-image-description">
+                                        <p>{{ bloque.descripcion }}</p>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
+                        <div class="bloque-actions">
+                            <a href="{% url 'bloque' bloque_id=bloque.id %}" class="btn btn-ver">Ver Bloque</a>
+                            <!-- Puedes agregar otros botones de acción aquí si lo deseas -->
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </section>
+
+    </main>
+
+    <style>
+        /* Estilos para los botones */
+        .btn {
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin-top: 10px;
+            display: inline-block;
+            text-decoration: none;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .btn-ver {
+            background-color: #007bff;
+        }
+
+        /* Estilos para la lista de bloques */
+        .bloques-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .bloque-item {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Estilos para la imagen */
+        .img-thumbnail {
+            max-width: 200px;
+            border-radius: 0.3rem;
+        }
+
+        /* Estilos para la descripción */
+        .bloque-image-description {
+            background-color: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        /* Estilos para los div de cada bloque */
+        .bloque-info,
+        .bloque-actions,
+        .bloque-image {
+            margin-bottom: 10px;
+        }
+    </style>
+
+    <!-- Script bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <!-- link de iconos -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+{% endblock %}
+</html>

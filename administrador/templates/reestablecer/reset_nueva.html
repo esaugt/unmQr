@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Restablecer Contraseña
+{% endblock title %}
+
+{% block botonbloques %}
+{% endblock botonbloques %}
+
+{% block content %}
+<style>
+    /* Estilos para centrar el formulario en la página */
+    body, html {
+        height: 100%;
+    }
+
+    .contenedor-resContraseña {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+
+    /* Estilos adicionales para los botones */
+    .btn-warning {
+        color: #fff;
+        background-color: #ffc107;
+        border-color: #ffc107;
+    }
+
+    .btn-warning:hover {
+        background-color: #ff9800;
+        border-color: #ff9800;
+    }
+
+    /* Ajustes de estilos para las imágenes */
+    .wave, .wave2, .shiba {
+        max-height: 150px;
+    }
+
+    .shiba {
+        max-width: 200px;
+    }
+</style>
+
+<main class="d-flex justify-content-center align-items-center contenedor-resContraseña">
+    <div class="d-flex justify-content-center align-items-center flex-wrap flex-row-reverse">
+        <form method="post">
+            {% csrf_token %}
+            <input type="hidden" name="uidb64" value="{{ uidb64 }}">
+            <input type="hidden" name="token" value="{{ token }}">
+            <h1 class="text-center">Restablecer Contraseña</h1>
+            <div class="form-group">
+                <label for="exampleInputEmail1">Ingresa nueva contraseña</label>
+                <input type="password" name="new_password1" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Contraseña">
+                <small id="emailHelp" class="form-text text-muted">Esta será la contraseña nueva</small>
+            </div>
+            <div class="form-group">
+                <label for="exampleInputPassword1">Ingresa nuevamente</label>
+                <input type="password" name="new_password2" class="form-control" id="exampleInputPassword1" placeholder="Contraseña">
+            </div>
+            <a href="/reset/done/" class="btn btn-warning">Restablecer</a>
+
+        </form>
+        </form>
+    </div>
+</main>
+{% endblock %}

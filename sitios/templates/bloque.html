@@ -1,0 +1,167 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+{{ bloque.nombre }} 
+{% endblock %}
+
+{% block botonbloques %}
+{% if user.is_authenticated %}
+<li class="nav-item">
+    <a class="nav-link active text-white fw-bold" aria-current="page" href="{% url 'administrador' %}">Home</a>
+</li>
+{% else %}
+<li class="nav-item">
+    <a class="nav-link active text-white fw-bold" aria-current="page" href="{% url 'home' %}">Home</a>
+</li>
+{% endif %}
+<li class="nav-item">
+    <a class="nav-link text-white fw-bold" href="{% url 'listadoBloques' %}">Bloques</a>
+</li>
+
+
+<li>
+    <form class="d-flex" action="{% url 'resultados_busqueda' %}" method="get" role="search">
+        <div class="input-group">
+            <input class="form-control" type="search" name="q" placeholder="¿Qué deseas buscar?" aria-label="Search" required>
+            <button class="btn btn-success" type="submit">Buscar</button>
+        </div>
+    </form>
+</li>
+{% endblock botonbloques %}
+
+{% block content %}
+<body >
+    <article>
+
+        <!--Sección de la Información General del Bloque-->
+        <section class="container-fluid mx-auto w-200">
+            <div class="imagen-fondo">
+                <img class='img-fluid' src="{% if bloque.imagen %}{{ bloque.imagen.url }}{% else %}{% static 'img/default.jpg' %}{% endif %}" alt="">
+            </div>
+            <div class="neu col-lg-8 col-10 text-center container-fluid mt-5">
+                <h1>{{ bloque.nombre }} </h1>
+                
+                <h6 class="mb-5">La información referente al mismo se presentará en la parte de abajo</h6>
+                <h4> {{ bloque.descripcion }}</h4>
+                <br>
+                <div>
+                    <h4>Funciones Principales:</h4>
+                    <h5> {{ bloque.funciones }}</h5>
+
+                    <br>
+                    <h4>Nombre del encargado:</h4>
+                    <h5> {{ bloque.nombre_encargado }}</h5>
+
+                    <br>
+                    <h4>Horarios de Funcionaminto:</h4>
+                    <h5> {{ bloque.horario_bloque}}</h5>
+                    <br>
+                    <br>
+                    <!-- Otros campos del bloque... -->
+                
+                </div>
+            </div>
+            <br>
+
+        </section>
+
+    <section class="container-fluid_ mx-auto mt-5 row col-lg-8 col-10 pb-5">
+        <h1 class="text-center">{{ bloque.nombre }}</h1>
+        <!-- Agregar el campo de búsqueda -->
+        <input type="text" id="search-input" class="form-control mt-3" placeholder="Buscar Sitio...">
+        <div class="list-group mt-3" id="aulas-list">
+            <!-- Aquí se mostrarán los resultados de búsqueda -->
+            {% for sitio in sitios %}
+            <div class="list-group-item list-group-item-action">
+                <button class="d-flex w-100 justify-content-between align-items-center" type="button" data-bs-toggle="collapse" data-bs-target="#sitio{{ sitio.id }}">
+                    <h5 class="mb-1">{{ sitio.nombre }}</h5>
+                    <i class="collapse-icon fas fa-chevron-down"></i>
+                </button>
+                <div id="sitio{{ sitio.id }}" class="collapse justify-content-center">                  
+                    <ul>
+                      <li><h3>{{ sitio.nombre }}</h3></li>
+                        <li>{{ sitio.planta }}</li>
+                        <li>Horarios:  {{ sitio.horario }}</li>
+                        <li>Descripcion:  {{ sitio.descripcion }}</li>
+                        {% if sitio.nombre_encargado %}
+                            <li>Encargado(a): {{ sitio.nombre_director }}</li>
+                        {% else %}
+                            <li>Encargado(a): No se ha registrado aún.</li>
+                        {% endif %}
+                        {% if sitio.imagen %}
+                          <li>
+                            <img class="img-fluid imagen-pequena" src="{{ sitio.imagen.url }}" alt="{{ sitio.nombre }}">
+                          </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+        <!-- Agrega la siguiente línea dentro del <head> de tu documento HTML para incluir Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+
+      <script>
+        // JavaScript para controlar el clic y agregar/quitar la clase 'active'
+        document.addEventListener('DOMContentLoaded', function () {
+          const buttons = document.querySelectorAll('.list-group-item button');
+
+          buttons.forEach(function (button) {
+            button.addEventListener('click', function () {
+              const parent = this.closest('.list-group-item');
+              parent.classList.toggle('active');
+            });
+          });
+        });
+      </script>
+
+      <!--Sección del Mapa-->
+      <section class="container-fluid mt-5 d-flex justify-content-center pb-5 col-lg-8 col-10">
+        <div>
+          {% if bloque.ubicacion %}
+              {{ bloque.ubicacion|safe }}  <!-- Utiliza |safe para mostrar el contenido HTML sin escapar -->
+          {% else %}
+              <p>No hay ubicación para este bloque.</p>
+          {% endif %}
+      </div>
+      </section>
+
+    </article>
+
+    <!-- Script bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+        crossorigin="anonymous"></script>
+    <!-- link de iconos -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+
+    <script>
+        // Obtener la lista de aulas
+        const aulasList = document.getElementById('aulas-list');
+        const aulasItems = aulasList.getElementsByClassName('list-group-item');
+    
+        // Obtener el campo de búsqueda
+        const searchInput = document.getElementById('search-input');
+    
+        // Agregar evento de escucha para detectar cambios en el campo de búsqueda
+        searchInput.addEventListener('input', function () {
+          const searchTerm = searchInput.value.toLowerCase();
+          for (let i = 0; i < aulasItems.length; i++) {
+            const aulaNombre = aulasItems[i].querySelector('h5').textContent.toLowerCase();
+            if (aulaNombre.includes(searchTerm)) {
+                aulasItems[i].style.display = 'block';
+          } else {
+                aulasItems[i].style.display = 'none'; // Set display to 'none' to hide the item
+            }
+          }
+      });
+    </script>
+    
+
+
+</body>
+{% endblock %}

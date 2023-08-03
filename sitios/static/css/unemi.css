@@ -1,0 +1,240 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    background-color: rgb(253, 253, 253);
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+nav{
+    width: 100%;
+    position: relative;
+    z-index: 50;
+}
+nav .navbar{
+    display: flex;
+    justify-content: space-between;
+    height: 6rem;
+    align-items: center;
+}
+li{
+    list-style: none;
+}
+a{
+    color: rgb(0, 0, 0);
+    text-decoration: none;  
+    margin: auto;
+}
+
+.navbar{
+    min-height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    padding: 0 50px;
+    left: -5%;
+    
+}
+
+.nav-menu{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 60px;
+}
+
+.nav-brandig{
+    font-size: 2rem;
+}
+
+.nav-link{
+    transition: 0.7s ease;
+}
+
+.nav-link:hover{
+    color: rgb(0, 0, 0);
+}
+
+.hamburger{
+    display: none;
+    cursor: pointer;
+}
+
+.bar{
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: rgb(0, 0, 0);
+}
+@media(max-width:768px){
+    .hamburger{
+        display: block;
+    }
+
+    .hamburger.active .bar:nth-child(2){
+        opacity: 0;
+    }
+    .hamburger.active .bar:nth-child(1){
+        transform: translateY(8px) rotate(45deg);
+    }
+    .hamburger.active .bar:nth-child(3){
+        transform: translateY(-8px) rotate(-45deg);
+    }
+    .nav-menu{
+        position: fixed;
+        left: -100%;
+        top: 70px;
+        gap: 0;
+        flex-direction: column;
+        background-color: #fff;
+        width: 100%;
+        text-align: center;
+    }
+    .nav-item a {
+        margin: 16px 0;
+    }
+    .nav-menu.active{
+        left: 0;
+    }
+    /* el responsivo de ver bloque */
+    .nav-link-ver {
+        position: relative; 
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -40%); /* Centrar vertical y horizontalmente */
+    }
+     /* ocualta la img info unemi la quita */
+    .container2 {
+        display: none; /* Ocultar container2 en pantallas pequeñas */
+    }
+    
+}
+div {
+    display: block;
+}
+body {
+    margin: 0;
+    font-family: "Poppins",sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: #212121;
+    text-align: left;
+    background-color: #fff;
+    overflow-x: hidden;
+}
+
+.container{
+    width: 84vw;
+    max-width: 3000px;
+    min-width: 320px;
+    margin: auto;
+    margin-top: 90px;
+    position: relative;
+    padding: 20px;
+    border-radius: 5px;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+}
+
+.container2{
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 40%;
+    width: 18vw;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    position: absolute;
+    z-index: 1;
+    top: -60px;
+    margin: auto;
+    box-shadow: 0 20px 50px 0 rgba(0,0,0,.25);
+}
+
+img{
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0px 3px 5px rgba(15, 15, 15, .15);
+    vertical-align: middle;
+}
+
+.links ul{
+    display: flex;
+}
+
+.links a{
+    display: inline-block;
+    padding: 0.9rem 1.2rem;
+    color: #0f0101;
+    font-size: 1rem;
+    text-transform: lowercase;
+    font-weight: 500;
+    line-height: 1;
+
+}
+
+.links a.nav-link{
+    background-color: #4597bf;
+    color: #fff;
+    border: 1px solid #4597bf;
+    border-radius: 5px;
+    margin: 0;
+    padding-right: 100px;
+    padding: 0.8rem 1rem;
+    font-weight: 500;
+    transition: all 350ms ease 
+
+}
+
+/* Estilos para el texto "InfoUNEMI" */
+.h1 {
+    font-size: 30px;
+    margin: 0;
+    display: inline;
+}
+
+/* Estilos para el texto "Info" en naranja */
+.orange {
+    color: #FFA500;
+}
+
+/* Estilos para el texto "UNEMI" en azul */
+.blue {
+    color: #1c3247;
+}
+
+/* Estilos generales para el footer */
+footer {
+    background-color: #1c3247;
+    color: #fff;
+    padding: 8px 0;
+    text-align: center;
+}
+
+/* Estilos para el texto del copyright */
+.box__copyright {
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* Estilos para el color de texto */
+footer p, footer b {
+    color: #fff;
+}
+
+/* Estilos para ocultar la línea horizontal */
+hr.footer {
+    display: none;
+}
+
+

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}
+Registro Exitoso - Administrador
+{% endblock %}
+
+{% block botonbloques %}
+<li class="nav-item">
+    <a class="nav-link text-white fw-bold" href="{% url 'listadoBloques' %}">Home</a>
+</li>
+{% endblock botonbloques %}
+
+{% block content %}
+<body>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center">
+                <h1 class="mt-5">¡Registro Exitoso!</h1>
+                <p class="lead">Los datos del usuario se han guardado correctamente.</p>
+                <h2>¿Deseas Iniciar sesión con el nuevo administrador?</h2>
+                
+                <div class="mt-4">
+                    <a href="{% url 'listadoBloques' %}" class="btn btn-primary me-3">Ir a Home</a>
+                    <a href="{% url 'logout' %}" class="btn btn-success">Iniciar Sesión</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock content %}

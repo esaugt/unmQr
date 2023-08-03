@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Envío De Correo
+{% endblock title %}
+
+{% block botonbloques %}
+{% endblock botonbloques %}
+
+{% block content %}
+<style>
+    /* Estilos para centrar el formulario en la página */
+    body, html {
+        height: 100%;
+    }
+
+    .contenedor-envio {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+</style>
+
+<main class="d-flex justify-content-center align-items-center contenedor-envio">
+    <div class="d-flex justify-content-center align-items-center flex-wrap">
+        <div class="card text-center">
+            <div class="card-header">
+                Mensaje
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Correo de Verificación</h5>
+                <p class="card-text">Se envió un correo para verificar el usuario</p>
+                <!-- Agregar enlaces a los botones para redireccionar a la página de inicio de sesión -->
+                <a href="{% url 'login' %}" class="btn btn-primary">Aceptar</a>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

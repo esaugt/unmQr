@@ -1,0 +1,75 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InfoUNEMI</title>
+    <link rel="icon" href="{% static 'img/infoUNEMI_.ico' %}">
+    <link rel="stylesheet" href="{% static 'css/unemi.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <header style="background-color: #1c3247;">
+        <nav class="navbar">
+            <a href="#" class="nav-brandig"></a>
+            <div class="links">
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="{% url 'login' %}" class="nav-link" style="color: #ffffff; display: flex; align-items: center; position: absolute; top: 10px; right: 10px;">
+                            <i class="fas fa-sign-in-alt" style="margin-right: 5px;"></i>
+                            <span style="margin-right: 5px;">Iniciar Sesión</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
+    
+    <script src="{% static 'js/unemi.js' %}"></script>
+    <div class="container">
+        <img src="{% static 'img/fondo.jpeg' %}" alt="">
+        <div class="c-hero-content col-sm-11 col-lg-7 text-center">
+            <h1 class="h1"><span class="orange">Info</span><span class="blue">UNEMI</span></h1>
+            <h3 class="h3">Descubre tu potencial<br> 
+                Transformando vidas con conocimiento​.
+                <br> <br>
+            </h3>
+            <div class="row mt-5 justify-content-center">
+                <div class="container2 text-center">
+                    <!-- Aquí va el contenido adicional si lo tienes -->
+                </div>
+            </div>
+        </div>
+        <div class="container2 text-center">
+            <img src="{% static 'img/infoUNEMI.png' %}" alt="InfoUNEMI">
+        </div>
+          <!-- Aquí esta el de ver bloque-->
+        <div class="bloque">
+            <ul class="nav-bloque">
+                <li class="nav-ver">
+                    <a href="{% url 'listadoBloques' %}" class="nav-link-ver" style="background-color: #ff8a00; border: 1px solid #fff; color: #1c3247; display: flex; align-items: center; justify-content: center; padding: 0.8rem 1rem; font-weight: 500; border-radius: 5px; transition: all 350ms ease; text-decoration: none; width: 175px; height: 65px; font-weight: bold; ">
+                        <i class="fas fa-sign-in-alt" style="margin-right: 5px;"></i>
+                        <span style="margin-right: 10px;">Ver Bloques</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    
+
+<footer>
+    <hr class="footer">
+    <div class="box__copyright">
+        <p>Universidad Estatal De Milagro &copy; {{ 'now'|date:'Y' }} UNEMI</p>
+    </div>
+</footer>
+</body>
+</html>

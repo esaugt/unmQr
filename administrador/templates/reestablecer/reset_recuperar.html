@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+Restablecer Contraseña
+{% endblock title %}
+
+{% block botonbloques %}
+{% endblock botonbloques %}
+
+{% block content %}
+<style>
+  /* Agregamos estilos al contenedor para centrar el formulario */
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  form {
+    max-width: 400px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+  }
+
+  p {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  /* Optional: Add some hover effect for the button */
+  .btn:hover {
+    background-color: #45a049;
+  }
+</style>
+
+<div class="container">
+  <form method="post" action="{% url 'password_reset' %}">
+    <div>
+      <h2>Restablecer contraseña</h2>
+      <p>Ingresa la dirección de correo electrónico asociada con tu cuenta y te enviaremos un enlace para restablecer tu contraseña.</p>
+    </div>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn header-btn">Enviar correo electrónico</button>
+  </form>
+</div>
+{% endblock %}
+
+

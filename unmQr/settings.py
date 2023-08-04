@@ -30,6 +30,7 @@ ALLOWED_HOSTS = ['*']
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:    
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+
 #ALLOWED_HOSTS = ['infoUNEMI.com', 'www.infoUNEMI.com', '127.0.0.1']
 
 # Application definition
@@ -89,19 +90,12 @@ import dj_database_url
     # Parsear la URL de conexión a una configuración de base de datos
     #db_config = dburl(default_dburl)
 
-    #DATABASES = {
-    #    'default': {
-    #        'ENGINE': 'django.db.backends.postgresql',
-    #        'NAME': db_config['NAME'],
-    #        'USER': db_config['USER'],
-    #        'PASSWORD': db_config['PASSWORD'],
-    #        'HOST': db_config['HOST'],
-    #        'PORT': db_config['PORT'],
-    #    }
-    #}
-
 DATABASES = {
-    "default" : dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    'default': dj_database_url.config(
+        # Feel free to alter this value to suit your needs.        
+        default='postgres://infounemi_user:deHMZozfzDrRSNuAtZZVjUOIifOhZQ37@dpg-cj5jucgeba7s73ed2c3g-a.oregon-postgres.render.com/infounemi',        
+        conn_max_age=600    
+    )
 }
 
 # Password validation

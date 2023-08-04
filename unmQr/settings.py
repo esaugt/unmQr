@@ -93,7 +93,7 @@ import dj_database_url
 DATABASES = {
     'default': dj_database_url.config(
         # Feel free to alter this value to suit your needs.        
-        default='postgres://infounemi_user:deHMZozfzDrRSNuAtZZVjUOIifOhZQ37@dpg-cj5jucgeba7s73ed2c3g-a.oregon-postgres.render.com/infounemi',        
+        default='postgres://infounemi_gdsr_user:m7e2obcYWsSo9Y4dChowmzsd3Mv0IAiq@dpg-cj66av97120s738vlra0-a.oregon-postgres.render.com/infounemi_gdsr',        
         conn_max_age=600    
     )
 }

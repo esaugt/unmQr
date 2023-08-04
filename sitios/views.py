@@ -43,8 +43,3 @@ def resultados_busqueda(request):
         'resultados_sitios': resultados_sitios,
         'query': query,
     })
-
-from django.views.defaults import page_not_found
- 
-def error_404_view(request, exception):
-    return render(request, '404.html', status=404)

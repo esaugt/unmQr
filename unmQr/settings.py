@@ -80,24 +80,28 @@ WSGI_APPLICATION = 'unmQr.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-import os
-from dj_database_url import parse as dburl
 
-# URL de conexión de PostgreSQL proporcionada
-default_dburl = 'postgres://infounemi_user:deHMZozfzDrRSNuAtZZVjUOIifOhZQ37@dpg-cj5jucgeba7s73ed2c3g-a.oregon-postgres.render.com/infounemi'
+import dj_database_url
 
-# Parsear la URL de conexión a una configuración de base de datos
-db_config = dburl(default_dburl)
+    # URL de conexión de PostgreSQL proporcionada
+    #default_dburl = 'postgres://infounemi_user:deHMZozfzDrRSNuAtZZVjUOIifOhZQ37@dpg-cj5jucgeba7s73ed2c3g-a.oregon-postgres.render.com/infounemi'
+
+    # Parsear la URL de conexión a una configuración de base de datos
+    #db_config = dburl(default_dburl)
+
+    #DATABASES = {
+    #    'default': {
+    #        'ENGINE': 'django.db.backends.postgresql',
+    #        'NAME': db_config['NAME'],
+    #        'USER': db_config['USER'],
+    #        'PASSWORD': db_config['PASSWORD'],
+    #        'HOST': db_config['HOST'],
+    #        'PORT': db_config['PORT'],
+    #    }
+    #}
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': db_config['NAME'],
-        'USER': db_config['USER'],
-        'PASSWORD': db_config['PASSWORD'],
-        'HOST': db_config['HOST'],
-        'PORT': db_config['PORT'],
-    }
+    "default" : dj_database_url.parse(os.environ.get("DATABASE_URL"))
 }
 
 # Password validation

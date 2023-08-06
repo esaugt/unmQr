@@ -12,7 +12,7 @@ Resultados de la Búsqueda
         <p><strong>Resultados para:</strong> {{ query }}</p>
 
         {% if resultados_bloques %}
-            <h2><strong>Resultados de bloques:</strong></h2>
+            <h2><strong>Resultados en Bloques:</strong></h2>
             <ul>
                 {% for bloque in resultados_bloques %}
                     <li>
@@ -21,20 +21,20 @@ Resultados de la Búsqueda
                 {% endfor %}
             </ul>
         {% else %}
-            <p>No se encontraron resultados de bloques.</p>
+            <p>No se encontraron resultados en bloques.</p>
         {% endif %}
 
         {% if resultados_sitios %}
-            <br><h2 style="color: #000;">Resultados de sitios:</h2>
+            <br><h2 style="color: #000;">Resultados en Sitios:</h2>
             <ul>
                 {% for sitio in resultados_sitios %}
                     <li>
-                        <a href="{% url 'bloque' sitio.bloque.id %}">{{ sitio.nombre }}</a> - Horario: {{ sitio.horario }} (Bloque: <a href="{% url 'bloque' sitio.bloque.id %}"> Ir a {{ sitio.bloque.nombre }}</a>)
+                        <a href="{% url 'bloque' sitio.bloque.id %}">{{ sitio.nombre }}</a><br>Horario: {{ sitio.horario }} (Bloque: <a href="{% url 'bloque' sitio.bloque.id %}"> Ir a {{ sitio.bloque.nombre }}</a>)
                     </li>
                 {% endfor %}
             </ul>
         {% else %}
-            <p>No se encontraron resultados de sitios.</p>
+            <p>No se encontraron resultados en sitios.</p>
         {% endif %}
     </div>
 </div>

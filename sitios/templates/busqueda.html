@@ -16,7 +16,7 @@ Resultados de la Búsqueda
             <ul>
                 {% for bloque in resultados_bloques %}
                     <li>
-                        <a href="{% url 'bloque' bloque.id %}">{{ bloque.nombre }}</a> - Encargado: {{ bloque.nombre_encargado }} (Ir a Bloque: <a href="{% url 'bloque' bloque.id %}"> Ir a {{ bloque.nombre }}</a>)
+                        <a href="{% url 'bloque' bloque.id %}">{{ bloque.nombre }}</a><br>Funciones Principales: {{ bloque.funciones }} (Ir a Bloque: <a href="{% url 'bloque' bloque.id %}"> Ir a {{ bloque.nombre }}</a>)
                     </li>
                 {% endfor %}
             </ul>

@@ -483,8 +483,6 @@ cuerpo{margin-top:20px;}
   
   /* Estilo para el campo de búsqueda */
   .form-control {
-    height: 40px; /* Ajusta el grosor de la barra */
-    padding: 8px; /* Ajusta el espacio interno */
     border-radius: 5px; /* Ajusta la curvatura de los bordes */
   }
   /* Estilos para los elementos de la lista */
